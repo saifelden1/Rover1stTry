@@ -30,12 +30,12 @@ Welcome to the **Mars Rover Simulation**! This repository features a highly deta
 
 | **Gazebo Simulation Environment** | **RViz2 Sensor Visualization** |
 | :---: | :---: |
-| <img src="../DOCU/gazebo_env.png" alt="Gazebo Env" width="400"/> | <img src="../DOCU/rviz_sensors.png" alt="RViz2 Output" width="400"/> |
+| <img src="photos/gazebo.png" alt="Gazebo Env" width="400"/> | <img src="photos/Rviz.png" alt="RViz2 Output" width="400"/> |
 | *The Mars Rover navigating the 6m x 6m ArUco marker world.* | *Live camera feed, TF tree, and IMU data visualized in RViz.* |
 
 | **Robot URDF Link Structure** | **ROS 2 Computation Graph (rqt_graph)** |
 | :---: | :---: |
-| <img src="../DOCU/urdf_structure.png" alt="URDF Structure" width="400"/> | <img src="../DOCU/rqt_graph.png" alt="rqt_graph" width="400"/> |
+| <img src="photos/urdfStructure1.png" alt="URDF Structure" width="400"/> | <img src="photos/rqtGraph.png" alt="rqt_graph" width="400"/> |
 | *Detailed view of the 6-wheel suspension layout and joints.* | *Clean, modular ROS 2 node communications bridge.* |
 
 ---
