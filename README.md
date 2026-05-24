@@ -7,8 +7,46 @@
   <img src="https://img.shields.io/badge/Ubuntu-22.04%20LTS-E95420?style=for-the-badge&logo=ubuntu" alt="Ubuntu 22.04">
 </div>
 
-<br>
 
+---
+
+## 📁 Project Structure
+
+High-level layout (workspace root):
+
+- `ros2_ws/` - ROS 2 workspace (source, builds, launch files)
+  - `src/` - packages: `my_robot_description`, `my_robot_gazebo`, `my_robot_perception`, `aruco_tracking`
+  - `Scripts/` - analysis and utility scripts (`imu_realtime_analyzer.py`, `plot_imu_data.py`)
+  - `build/`, `install/`, `log/` - build output and install artifacts (ignored in Git)
+- `RosFile2/` - report, figures and presentation assets
+- `DOCU/` - additional documentation and guides
+- `imu_test_data/` - recorded IMU test database and metadata
+
+Why this structure matters: keeping `src/` small and `Scripts/` adjacent makes it easy to run analysis and reproduce experiments without switching directories.
+
+## ⚡ Aliases (add these to `~/.bashrc` for convenience)
+
+Add the following to quickly build and launch the project:
+
+```bash
+alias rosb='cd ~/Desktop/ROARTASK/ros2_ws && source /opt/ros/humble/setup.bash && colcon build --symlink-install && source install/setup.bash'
+alias rosd='cd ~/Desktop/ROARTASK/ros2_ws && source install/setup.bash && ros2 launch my_robot_description display.launch.py'
+alias rosg='cd ~/Desktop/ROARTASK/ros2_ws && source install/setup.bash && ros2 launch my_robot_description gazebo.launch.py'
+alias rosgp='cd ~/Desktop/ROARTASK/ros2_ws && source install/setup.bash && ros2 launch my_robot_gazebo spawn_robot.launch.py'
+alias rosgu='cd ~/Desktop/ROARTASK/ros2_ws && source install/setup.bash && python3 robot_teleop_gui.py'
+```
+
+Use these to speed up development and testing during demos.
+
+## ⭐ Notable Strengths To Highlight
+
+- **End-to-end simulation**: Gazebo + `ros_gz_bridge` to ROS 2 topics provides a realistic sensor/actuator loop for testing algorithms before hardware.
+- **Modular robot model**: `xacro`-based URDF makes it easy to swap sensors, tune suspension, or export parts to other projects.
+- **ArUco perception integration**: The project includes ArUco marker models and a Python detection node (credit: ROAR ASU) for fast visual localization experiments.
+- **Built-in analysis tools**: `imu_realtime_analyzer.py` and plotting scripts automate collection and statistical validation of IMU data — great for sensor characterization and noise modeling.
+- **Reproducible workflows**: Clear aliases, launch files, and documented Quick Start reduce ramp-up time for collaborators or reviewers.
+
+**Version**: 1.0.0 | **Last Updated**: May 2026
 Welcome to the **Mars Rover Simulation**! This repository features a highly detailed, 6-wheeled differential-drive Mars rover developed for ROS 2 Humble and Gazebo Ignition. Designed to push the boundaries of robotic autonomy research, this simulation environment bridges complex kinematics with real-time perception for dynamic testing.
 
 ---
